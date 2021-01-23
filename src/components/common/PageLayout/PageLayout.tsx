@@ -1,4 +1,4 @@
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Switch } from 'antd';
 import React from 'react';
 import { StyledContent, StyledHeader } from './styles';
 
@@ -12,6 +12,7 @@ const PageLayout: Props = ({ children }) => {
           <Menu.Item key="users">Users</Menu.Item>
           <Menu.Item key="posts">Posts</Menu.Item>
         </Menu>
+        <Switch checkedChildren="dark" unCheckedChildren="light" />
       </StyledHeader>
       <StyledContent>{children}</StyledContent>
     </Layout>
