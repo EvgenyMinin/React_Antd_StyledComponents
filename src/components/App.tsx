@@ -3,11 +3,15 @@ import React from 'react';
 
 import { GlobalStyle } from '../utils/globalStyled';
 
+import PageLayout from './common/PageLayout';
+
 const App: React.FC = () => {
   return (
     <>
       <GlobalStyle />
-      <Typography.Title level={1}>React app</Typography.Title>
+      <PageLayout>
+        <Typography.Title level={1}>React app</Typography.Title>
+      </PageLayout>
     </>
   );
 };
