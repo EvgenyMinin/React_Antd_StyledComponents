@@ -1,4 +1,4 @@
-import { Layout, Switch } from 'antd';
+import { Layout } from 'antd';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
@@ -6,6 +6,7 @@ import {
   StyledHeader,
   StyledMenu,
   StyledMenuItem,
+  StyledSwitch,
 } from './styles';
 
 import { Props } from './types';
@@ -20,7 +21,7 @@ const PageLayout: Props = ({ children }) => {
           <StyledMenuItem key="users">Users</StyledMenuItem>
           <StyledMenuItem key="posts">Posts</StyledMenuItem>
         </StyledMenu>
-        <Switch
+        <StyledSwitch
           checkedChildren="dark"
           unCheckedChildren="light"
           onClick={toggleTheme}
