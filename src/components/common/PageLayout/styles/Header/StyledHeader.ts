@@ -6,6 +6,6 @@ export const StyledHeader = styled(Layout.Header)`
   justify-content: space-between;
   align-items: center;
   padding: 0;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.bodyBackgroundColor};
   padding: 0 16px;
 `;

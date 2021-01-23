@@ -1,7 +1,12 @@
-import { Layout, Menu, Switch } from 'antd';
+import { Layout, Switch } from 'antd';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { StyledContent, StyledHeader, StyledMenu } from './styles';
+import {
+  StyledContent,
+  StyledHeader,
+  StyledMenu,
+  StyledMenuItem,
+} from './styles';
 
 import { Props } from './types';
 
@@ -12,8 +17,8 @@ const PageLayout: Props = ({ children }) => {
     <Layout>
       <StyledHeader>
         <StyledMenu mode="horizontal" defaultSelectedKeys={['users']}>
-          <Menu.Item key="users">Users</Menu.Item>
-          <Menu.Item key="posts">Posts</Menu.Item>
+          <StyledMenuItem key="users">Users</StyledMenuItem>
+          <StyledMenuItem key="posts">Posts</StyledMenuItem>
         </StyledMenu>
         <Switch
           checkedChildren="dark"
