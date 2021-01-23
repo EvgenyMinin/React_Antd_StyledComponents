@@ -1,10 +1,11 @@
-import { Typography } from 'antd';
 import React, { useState } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import { GlobalStyle } from '../utils/globalStyled';
 
-import PageLayout from './common/PageLayout';
+import Users from './Users';
+import Posts from './Posts';
 
 import { lightTheme } from 'themes/light';
 import { darkTheme } from 'themes/dark';
@@ -24,9 +25,16 @@ const App: React.FC = () => {
       }}
     >
       <GlobalStyle />
-      <PageLayout>
-        <Typography.Title level={1}>React app</Typography.Title>
-      </PageLayout>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Users />
+          </Route>
+          <Route exact path="/posts">
+            <Posts />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </ThemeProvider>
   );
 };

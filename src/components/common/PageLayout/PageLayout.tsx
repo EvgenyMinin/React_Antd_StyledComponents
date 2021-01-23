@@ -1,7 +1,8 @@
-import { Layout } from 'antd';
 import React, { useContext } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { ThemeContext } from 'styled-components';
 import {
+  StyledLayout,
   StyledContent,
   StyledHeader,
   StyledMenu,
@@ -12,23 +13,30 @@ import {
 import { Props } from './types';
 
 const PageLayout: Props = ({ children }) => {
-  const { toggleTheme } = useContext(ThemeContext);
+  const { id, toggleTheme } = useContext(ThemeContext);
+
+  const { pathname } = useLocation();
 
   return (
-    <Layout>
+    <StyledLayout>
       <StyledHeader>
-        <StyledMenu mode="horizontal" defaultSelectedKeys={['users']}>
-          <StyledMenuItem key="users">Users</StyledMenuItem>
-          <StyledMenuItem key="posts">Posts</StyledMenuItem>
+        <StyledMenu mode="horizontal" selectedKeys={[pathname]}>
+          <StyledMenuItem key="/">
+            <Link to="/">Users</Link>
+          </StyledMenuItem>
+          <StyledMenuItem key="/posts">
+            <Link to="/posts">Posts</Link>
+          </StyledMenuItem>
         </StyledMenu>
         <StyledSwitch
-          checkedChildren="dark"
-          unCheckedChildren="light"
+          checkedChildren={'dark'}
+          unCheckedChildren={'light'}
           onClick={toggleTheme}
+          checked={id === 'dark'}
         />
       </StyledHeader>
       <StyledContent>{children}</StyledContent>
-    </Layout>
+    </StyledLayout>
   );
 };
 

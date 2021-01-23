@@ -1,9 +1,6 @@
 import { Layout } from 'antd';
 import styled from 'styled-components';
 
-export const StyledContent = styled(Layout.Content)`
-  display: flex;
-  justify-content: center;
+export const StyledLayout = styled(Layout)`
   background-color: ${({ theme }) => theme.colors.bodyBackgroundColor};
-  max-width: 992px;
 `;
