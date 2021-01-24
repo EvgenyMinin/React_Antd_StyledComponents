@@ -21,8 +21,8 @@ const PageLayout: Props = ({ children }) => {
     <StyledLayout>
       <StyledHeader>
         <StyledMenu mode="horizontal" selectedKeys={[pathname]}>
-          <StyledMenuItem key="/">
-            <Link to="/">Users</Link>
+          <StyledMenuItem key="/users">
+            <Link to="/users">Users</Link>
           </StyledMenuItem>
           <StyledMenuItem key="/posts">
             <Link to="/posts">Posts</Link>

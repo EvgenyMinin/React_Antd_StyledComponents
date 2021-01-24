@@ -6,5 +6,6 @@ export const StyledContent = styled(Layout.Content)`
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.bodyBackgroundColor};
   max-width: 992px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 32px auto 0;
 `;

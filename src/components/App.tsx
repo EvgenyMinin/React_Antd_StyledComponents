@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import { GlobalStyle } from '../utils/globalStyled';
 
 import Users from './Users';
 import Posts from './Posts';
+import UserDetail from './UserDetail';
 
 import { lightTheme } from 'themes/light';
 import { darkTheme } from 'themes/dark';
@@ -27,11 +28,15 @@ const App: React.FC = () => {
       <GlobalStyle />
       <BrowserRouter>
         <Switch>
-          <Route exact path="/">
+          <Redirect exact from="/" to="/users" />
+          <Route exact path="/users">
             <Users />
           </Route>
           <Route exact path="/posts">
             <Posts />
+          </Route>
+          <Route exact path="/users/:id">
+            <UserDetail />
           </Route>
         </Switch>
       </BrowserRouter>
