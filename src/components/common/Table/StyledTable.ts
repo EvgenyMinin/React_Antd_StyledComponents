@@ -12,6 +12,10 @@ export const StyledTable = styled(Table)`
     color: ${({ theme }) => theme.colors.primaryColor};
   }
 
+  .ant-table-row {
+    cursor: pointer;
+  }
+
   .ant-pagination-disabled button {
     background-color: ${({ theme }) => theme.colors.tableBackground};
 

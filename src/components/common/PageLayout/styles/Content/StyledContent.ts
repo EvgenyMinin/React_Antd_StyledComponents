@@ -8,4 +8,5 @@ export const StyledContent = styled(Layout.Content)`
   max-width: 992px;
   width: 100%;
   margin: 32px auto 0;
+  padding: 0 16px;
 `;
