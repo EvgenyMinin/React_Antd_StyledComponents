@@ -5,5 +5,7 @@ export const lightTheme = {
     secondaryColor: '#606470',
     bodyBackgroundColor: '#f7f7f7',
     secondaryBackground: '#ff570c',
+    tableBackground: '#fff',
+    border: '#ff570c',
   },
 };

@@ -5,5 +5,7 @@ export const darkTheme = {
     secondaryColor: '#0d7377',
     bodyBackgroundColor: '#212121',
     secondaryBackground: '#323232',
+    tableBackground: '#505050',
+    border: '#14ffec',
   },
 };

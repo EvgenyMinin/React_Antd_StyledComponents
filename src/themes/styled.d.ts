@@ -8,6 +8,8 @@ declare module 'styled-components' {
       secondaryColor: string;
       bodyBackgroundColor: string;
       secondaryBackground: string;
+      tableBackground: string;
+      border: string;
     };
 
     toggleTheme?: () => void;
