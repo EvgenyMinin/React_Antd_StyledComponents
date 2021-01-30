@@ -1,6 +1,5 @@
 import { Spin } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
 import { API_URL } from 'consts';
 
@@ -10,6 +9,7 @@ import { StyledTable } from 'components/common/Table';
 
 import { IUser } from './types';
 import { columns } from './columns';
+import { useHistory } from 'react-router-dom';
 
 const Users = () => {
   const [users, setUsers] = useState<IUser[]>();
@@ -25,7 +25,7 @@ const Users = () => {
     setIsLoading(false);
   }, []);
 
-  const onRowClick = ({ id, index }: any) => {
+  const onRowClick = ({ id }: any) => {
     return { onClick: () => history.push(`/users/${id}`) };
   };
 
