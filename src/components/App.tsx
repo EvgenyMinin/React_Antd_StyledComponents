@@ -10,6 +10,7 @@ import UserDetail from './UserDetail';
 
 import { lightTheme } from 'themes/light';
 import { darkTheme } from 'themes/dark';
+import Products from './Products';
 
 const App: React.FC = () => {
   const [theme, setTheme] = useState(lightTheme);
@@ -37,6 +38,9 @@ const App: React.FC = () => {
           </Route>
           <Route exact path="/users/:id">
             <UserDetail />
+          </Route>
+          <Route exact path="/products">
+            <Products />
           </Route>
         </Switch>
       </BrowserRouter>

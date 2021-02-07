@@ -27,6 +27,9 @@ const PageLayout: Props = ({ children }) => {
           <StyledMenuItem key="/posts">
             <Link to="/posts">Posts</Link>
           </StyledMenuItem>
+          <StyledMenuItem key="/products">
+            <Link to="/products">Products</Link>
+          </StyledMenuItem>
         </StyledMenu>
         <StyledSwitch
           checkedChildren={'dark'}
