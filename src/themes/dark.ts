@@ -7,5 +7,7 @@ export const darkTheme = {
     secondaryBackground: '#323232',
     tableBackground: '#505050',
     border: '#14ffec',
+    primaryButton: '#14ffec',
+    hoverPrimaryButtonColor: '#00897e',
   },
 };

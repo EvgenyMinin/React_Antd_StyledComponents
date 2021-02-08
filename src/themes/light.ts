@@ -7,5 +7,7 @@ export const lightTheme = {
     secondaryBackground: '#ff570c',
     tableBackground: '#fff',
     border: '#ff570c',
+    primaryButton: '#ff570c',
+    hoverPrimaryButtonColor: '#d54100',
   },
 };

@@ -10,6 +10,8 @@ declare module 'styled-components' {
       secondaryBackground: string;
       tableBackground: string;
       border: string;
+      primaryButton: string;
+      hoverPrimaryButtonColor: string;
     };
 
     toggleTheme?: () => void;

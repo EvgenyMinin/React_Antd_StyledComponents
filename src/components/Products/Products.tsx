@@ -1,5 +1,5 @@
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import { Button, Space, Spin } from 'antd';
+import { Button, Row, Space, Spin } from 'antd';
 import React, { SyntheticEvent, useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -7,6 +7,7 @@ import PageLayout from 'components/common/PageLayout';
 import { StyledTitle } from 'components/common/Title';
 import { StyledTable } from 'components/common/Table';
 import { onEdit } from 'components/Users/utils/onEdit';
+import { StyledButton } from 'components/common/Button/Button';
 
 import { columns } from './columns';
 import { IProduct } from './types';
@@ -73,11 +74,13 @@ const Products = () => {
 
   return (
     <PageLayout>
-      <StyledTitle level={1}>Products</StyledTitle>
+      <Row align="middle" justify="space-between">
+        <StyledTitle level={1}>Products</StyledTitle>
 
-      <Button type="primary" onClick={handleShowNewProductModal}>
-        Add New
-      </Button>
+        <StyledButton type="primary" onClick={handleShowNewProductModal}>
+          Add New
+        </StyledButton>
+      </Row>
 
       {isLoading ? (
         <Spin />
