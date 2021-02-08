@@ -1,19 +1,22 @@
 import axios from 'axios';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import { Button, Space, Spin } from 'antd';
+import { Button, Row, Space, Spin } from 'antd';
 import React, { SyntheticEvent, useEffect, useState } from 'react';
 
 import PageLayout from 'components/common/PageLayout';
 import { StyledTitle } from 'components/common/Title';
 import { StyledTable } from 'components/common/Table';
+import { StyledButton } from 'components/common/Button';
 import { API_URL } from 'consts';
 
 import { columns } from './columns';
 import { IPost } from './types';
+import CreateEditPostModal from './CreateEditPostModal';
 
 const Posts = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState<IPost[]>([]);
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
   const actionsCol = {
     title: 'Action',
@@ -64,13 +67,33 @@ const Posts = () => {
     });
   };
 
+  const handleShowNewProductModal = () => {
+    setIsModalVisible(!isModalVisible);
+  };
+
   return (
     <PageLayout>
-      <StyledTitle level={1}>Posts</StyledTitle>
+      <Row align="middle" justify="space-between">
+        <StyledTitle level={1}>Posts</StyledTitle>
+
+        <StyledButton type="primary" onClick={handleShowNewProductModal}>
+          Add New
+        </StyledButton>
+      </Row>
+
       {isLoading ? (
         <Spin />
       ) : (
         <StyledTable dataSource={posts} columns={newColumns} rowKey="id" />
+      )}
+
+      {isModalVisible && (
+        <CreateEditPostModal
+          isModalVisible={isModalVisible}
+          getData={getData}
+          setIsModalVisible={setIsModalVisible}
+          handleShowNewProductModal={handleShowNewProductModal}
+        />
       )}
     </PageLayout>
   );
