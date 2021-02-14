@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import { Button, Row, Space, Spin } from 'antd';
+import { Button, notification, Row, Space, Spin } from 'antd';
 import React, { SyntheticEvent, useEffect, useState } from 'react';
 
 import PageLayout from 'components/common/PageLayout';
@@ -64,6 +64,9 @@ const Posts = () => {
     axios.delete(`${API_URL}/posts/${id}`).then(() => {
       const del = posts?.filter((post) => id !== post.id);
       setPosts(del);
+      notification.success({
+        message: 'Post has been successfully deleted'
+      });
     });
   };
 
@@ -84,8 +87,8 @@ const Posts = () => {
       {isLoading ? (
         <Spin />
       ) : (
-        <StyledTable dataSource={posts} columns={newColumns} rowKey="id" />
-      )}
+          <StyledTable dataSource={posts} columns={newColumns} rowKey="id" />
+        )}
 
       {isModalVisible && (
         <CreateEditPostModal

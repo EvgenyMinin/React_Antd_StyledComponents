@@ -1,6 +1,8 @@
 import React from 'react';
-import { Modal, notification, Form, Input, InputNumber, Button } from 'antd';
+import { Modal, notification, Form, Input, InputNumber } from 'antd';
 import axios from 'axios';
+
+import { StyledButton } from 'components/common/Button';
 
 import { LOCAL_URL } from 'consts';
 import { IProduct } from '../types';
@@ -16,12 +18,12 @@ const CreateEditModal = ({
     try {
       await axios.post(`${LOCAL_URL}/products`, values);
       getData();
-      setIsModalVisible(!isModalVisible);
-      notification.open({
+      setIsModalVisible(false);
+      notification.success({
         message: 'Successfuly added',
       });
     } catch (error) {
-      console.log(`😱 Axios request failed: ${error}`);
+      notification.error({ message: `😱 Axios request failed: ${error}` });
     }
   };
 
@@ -33,9 +35,9 @@ const CreateEditModal = ({
       onCancel={handleShowNewProductModal}
       width={400}
       footer={[
-        <Button form="myForm" key="submit" htmlType="submit">
+        <StyledButton form="myForm" key="submit" htmlType="submit" type='primary'>
           Submit
-        </Button>,
+        </StyledButton>,
       ]}
     >
       <Form layout="vertical" name="products" onFinish={onFinish} id="myForm">

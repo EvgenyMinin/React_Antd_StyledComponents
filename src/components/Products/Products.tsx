@@ -1,18 +1,17 @@
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import { Button, Row, Space, Spin } from 'antd';
+import { Button, notification, Row, Space, Spin } from 'antd';
 import React, { SyntheticEvent, useEffect, useState } from 'react';
 import axios from 'axios';
 
 import PageLayout from 'components/common/PageLayout';
 import { StyledTitle } from 'components/common/Title';
 import { StyledTable } from 'components/common/Table';
-import { onEdit } from 'components/Users/utils/onEdit';
 import { StyledButton } from 'components/common/Button/Button';
 
+import CreateEditModal from './CreateEditModal';
 import { columns } from './columns';
 import { IProduct } from './types';
 import { LOCAL_URL } from '../../consts';
-import CreateEditModal from './CreateEditModal/CreateEditModal';
 
 const Products = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,7 +27,7 @@ const Products = () => {
           <Button
             onClick={(e: SyntheticEvent) => {
               e.stopPropagation();
-              onEdit(record._id);
+              // onEdit(record._id);
             }}
           >
             <EditOutlined />
@@ -65,6 +64,9 @@ const Products = () => {
     axios.delete(`${LOCAL_URL}/products/${id}`).then(() => {
       const del = products?.filter((product) => id !== product._id);
       setProducts(del);
+      notification.success({
+        message: 'Product has been successfully deleted'
+      });
     });
   };
 
@@ -85,8 +87,9 @@ const Products = () => {
       {isLoading ? (
         <Spin />
       ) : (
-        <StyledTable dataSource={products} columns={newColumns} rowKey="_id" />
-      )}
+          <StyledTable dataSource={products} columns={newColumns} rowKey="_id" />
+        )
+      }
 
       {isModalVisible && (
         <CreateEditModal
